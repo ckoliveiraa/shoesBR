@@ -1,13 +1,13 @@
 # 🛍️ Projeto dbt - ShoesBR
 
-Este projeto modela os dados de um e-commerce fictício chamado **ShoesBR**, utilizando o **dbt (Data Build Tool)** para transformar, documentar e testar os dados de forma estruturada e analítica.
+Este projeto modela os dados de um e-commerce fictício chamado **ShoesBR**, utilizando o **Data Build Tool (dbt)** para transformar, documentar e testar os dados de forma estruturada e analítica.
 
 ---
 
 
 ## 🎯 Objetivo do Projeto
 
-O objetivo deste projeto é construir um **Data Warehouse analítico**, organizado em camadas conforme as boas práticas recomendadas pelo **dbt (data build tool)**. A arquitetura proposta permitirá análises confiáveis e estruturadas sobre **clientes, produtos, vendas e estornos**.
+O objetivo deste projeto é construir um **Data Warehouse analítico**, organizado em camadas conforme as boas práticas recomendadas pelo **dbt**. A arquitetura proposta permitirá análises confiáveis e estruturadas sobre **clientes, produtos, vendas e estornos**.
 
 Além disso, o projeto oferece aos alunos uma visão completa **End-to-End (E2E)** — desde a modelagem e transformação dos dados até o deploy e agendamento no ambiente em nuvem.
 
