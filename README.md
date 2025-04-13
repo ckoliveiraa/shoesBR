@@ -96,6 +96,8 @@ Para executar este projeto, você precisará ter o seguinte ambiente configurado
 - 🐘 **PostgreSQL via RDS (AWS)** ou outro banco compatível
 - 💻 **DBeaver** (cliente SQL opcional para explorar dados) – [Download](https://dbeaver.io/download/)
 - ☁️ **Conta gratuita no dbt Cloud** – [Criar conta](https://cloud.getdbt.com/signup/)
+- 🛠️ **Git** – necessário para versionamento e integração com o dbt Cloud - [Download](https://git-scm.com/downloads)
+- 🐙 **Conta no GitHub** – necessária para hospedar o repositório do projeto e integrar ao dbt Cloud [Criar conta](https://github.com/join)
 - 📦 **Pacote `dbt-postgres` versão 1.9 ou superior**  
   Instale com o comando:  
   ```bash
