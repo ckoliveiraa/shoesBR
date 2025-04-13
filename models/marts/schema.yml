@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: marts_clientes
+  - name: dim_clientes
     description: "Tabela mart consolidando dados de clientes e compras."
     columns:
       - name: customer_id
@@ -22,7 +22,7 @@ models:
       - name: total_compras
         description: "Número total de compras realizadas pelo cliente."
 
-  - name: marts_produtos
+  - name: dim_produtos
     description: "Tabela mart consolidando dados de produtos e vendas."
     columns:
       - name: product_id
@@ -39,7 +39,7 @@ models:
       - name: total_faturado
         description: "Valor total faturado com o produto."
 
-  - name: marts_vendas
+  - name: fact_vendas
     description: "Tabela mart consolidando vendas e estornos."
     columns:
       - name: purchase_id
