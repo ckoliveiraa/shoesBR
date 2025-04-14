@@ -1,6 +1,6 @@
 WITH source AS (
     SELECT *
-    FROM {{ ref('estorno') }}
+    FROM {{ source('landing', 'vendas') }}
 ),
 
 renamed AS (
@@ -8,9 +8,10 @@ renamed AS (
         CAST(purchase_id AS INT) AS purchase_id,
         CAST(customer_id AS INT) AS customer_id,
         CAST(product_id AS INT) AS product_id,
-        CAST(refund_date AS DATE) AS refund_date,
-        refund_reason,
-        CAST(refund_amount AS DECIMAL(10,2)) AS refund_amount
+        CAST(date AS DATE) AS purchase_date,
+        CAST(quantity AS INT) AS quantity,
+        CAST(total_price AS DECIMAL(10,2)) AS total_price,
+        payment_method
     FROM source
 )
 
