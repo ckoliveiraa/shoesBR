@@ -37,6 +37,8 @@ models:
       +materialized: view
       +schema: staging
       +tags: bronze
+      +docs:
+        node_color: "#CD7F32"
       +persist_docs:
         relation: true
         columns: true
@@ -45,14 +47,19 @@ models:
       +materialized: view
       +schema: intermediate
       +tags: silver
+      +docs:
+        node_color: silver
       +persist_docs:
         relation: true
         columns: true
+        
 
     marts:
       +materialized: table
       +schema: marts
       +tags: gold
+      +docs:
+        node_color: gold      
       +persist_docs:
         relation: true
         columns: true
