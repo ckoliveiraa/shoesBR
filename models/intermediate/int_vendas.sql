@@ -1,18 +1,21 @@
-WITH source AS (
-    SELECT *
-    FROM {{ source('staging', 'vendas') }}
+WITH vendas AS (
+    SELECT * FROM {{ ref('stg_vendas') }}
 ),
 
-renamed AS (
-    SELECT 
-        CAST(purchase_id AS INT) AS purchase_id,
-        CAST(customer_id AS INT) AS customer_id,
-        CAST(product_id AS INT) AS product_id,
-        CAST(date AS DATE) AS purchase_date,
-        CAST(quantity AS INT) AS quantity,
-        CAST(total_price AS DECIMAL(10,2)) AS total_price,
-        payment_method
-    FROM source
+estornos AS (
+    SELECT purchase_id, refund_amount, refund_reason
+    FROM {{ ref('stg_estorno') }}
 )
 
-SELECT * FROM renamed
+SELECT 
+    v.purchase_id,
+    v.customer_id,
+    v.product_id,
+    v.purchase_date,
+    v.quantity,
+    v.total_price,
+    v.payment_method,
+    COALESCE(e.refund_amount, 0) AS valor_estornado,
+    e.refund_reason
+FROM vendas v
+LEFT JOIN estornos e ON v.purchase_id = e.purchase_id

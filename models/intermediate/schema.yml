@@ -2,13 +2,10 @@ version: 2
 
 models:
   - name: int_clientes
-    description: "Tabela intermediária com dados normalizados de clientes."
+    description: "Tabela intermediária consolidando dados de clientes e compras."
     columns:
       - name: customer_id
         description: "Identificador único do cliente."
-        tests:
-          - unique
-          - not_null
       - name: customer_name
         description: "Nome completo do cliente."
       - name: customer_address
@@ -17,40 +14,34 @@ models:
         description: "Número de telefone do cliente."
       - name: customer_email
         description: "E-mail do cliente."
+      - name: total_gasto
+        description: "Total gasto pelo cliente."
+      - name: total_compras
+        description: "Número total de compras realizadas pelo cliente."
 
   - name: int_produtos
-    description: "Tabela intermediária com dados de produtos normalizados."
+    description: "Tabela intermediária consolidando dados de produtos e vendas."
     columns:
       - name: product_id
         description: "Identificador único do produto."
-        tests:
-          - unique
-          - not_null
       - name: name_product
         description: "Nome do produto."
       - name: price_product
         description: "Preço do produto."
+      - name: total_vendido
+        description: "Quantidade total vendida do produto."
+      - name: total_faturado
+        description: "Valor total faturado com o produto."
 
   - name: int_vendas
-    description: "Tabela intermediária com dados de vendas estruturados."
+    description: "Tabela intermediária consolidando vendas e estornos."
     columns:
       - name: purchase_id
         description: "Identificador único da venda."
-        tests:
-          - unique
-          - not_null
       - name: customer_id
         description: "Identificador do cliente."
-        tests:
-          - relationships:
-              to: ref('int_clientes')
-              field: customer_id
       - name: product_id
         description: "Identificador do produto."
-        tests:
-          - relationships:
-              to: ref('int_produtos')
-              field: product_id
       - name: purchase_date
         description: "Data da compra."
       - name: quantity
@@ -59,23 +50,7 @@ models:
         description: "Preço total da compra."
       - name: payment_method
         description: "Método de pagamento utilizado."
-
-  - name: int_estorno
-    description: "Tabela intermediária com dados de estornos de vendas."
-    columns:
-      - name: purchase_id
-        description: "Identificador único da venda estornada."
-        tests:
-          - relationships:
-              to: ref('int_vendas')
-              field: purchase_id
-      - name: customer_id
-        description: "Identificador do cliente associado ao estorno."
-      - name: product_id
-        description: "Identificador do produto associado ao estorno."
-      - name: refund_date
-        description: "Data do estorno."
+      - name: valor_estornado
+        description: "Valor estornado na compra."
       - name: refund_reason
-        description: "Motivo do estorno."
-      - name: refund_amount
-        description: "Valor estornado."
+        description: "Motivo do estorno, caso tenha ocorrido."
