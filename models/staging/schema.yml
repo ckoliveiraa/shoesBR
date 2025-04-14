@@ -66,30 +66,6 @@ models:
       - name: payment_method
         description: "Método de pagamento utilizado."
 
-  - name: stg_estorno
-    description: "Tabela staging com dados de estornos de vendas."
-    columns:
-      - name: purchase_id
-        description: "Identificador único da venda estornada."
-        tests:
-          - relationships:
-              to: ref('stg_vendas')
-              field: purchase_id
-
-      - name: customer_id
-        description: "Identificador do cliente associado ao estorno."
-
-      - name: product_id
-        description: "Identificador do produto associado ao estorno."
-
-      - name: refund_date
-        description: "Data do estorno."
-
-      - name: refund_reason
-        description: "Motivo do estorno."
-        
-      - name: refund_amount
-        description: "Valor estornado."
   - name: stg_estorno  
     description: "Registros de estornos com informações de cliente, produto, data e motivo"
     columns:
