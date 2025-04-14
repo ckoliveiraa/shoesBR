@@ -58,8 +58,10 @@ sources:
 
           - name: payment_method
             description: "Método de pagamento utilizado"
+
+            
       - name: estorno
-        description: "Registros de estornos de compras, contendo informações do cliente, produto, data, motivo e valor do reembolso"
+        description: "Registros de estornos de compras, contendo informações do cliente, produto, data, motivo e valor do reembolso, gerada através do seed"
         columns:
           - name: purchase_id
             description: "Identificador único da compra estornada"
@@ -78,3 +80,4 @@ sources:
 
           - name: refund_amount
             description: "Valor monetário reembolsado ao cliente"
+  

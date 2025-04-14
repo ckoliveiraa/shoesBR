@@ -56,9 +56,10 @@ models:
       +persist_docs:
         relation: true
         columns: true
+      finance:
+        +tags: finance
+      marketing:
+        +tags: marketing             
 
-    +persist_docs:
-      relation: true
-      columns: true
 seeds:
       +schema: landing
