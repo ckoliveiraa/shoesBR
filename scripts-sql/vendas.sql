@@ -1,8 +1,8 @@
--- Cria o schema staging se não existir
-CREATE SCHEMA IF NOT EXISTS staging;
+-- Cria o schema landing se não existir
+CREATE SCHEMA IF NOT EXISTS landing;
 
--- Cria a tabela vendas dentro do schema staging
-CREATE TABLE staging.vendas (
+-- Cria a tabela vendas dentro do schema landing
+CREATE TABLE landing.vendas (
     purchase_id INT PRIMARY KEY,
     customer_id INT,
     product_id INT,
@@ -10,12 +10,12 @@ CREATE TABLE staging.vendas (
     quantity INT,
     total_price DECIMAL(10,2),
     payment_method VARCHAR(50),
-    FOREIGN KEY (customer_id) REFERENCES staging.clientes(customer_id),
-    FOREIGN KEY (product_id) REFERENCES staging.produtos(product_id)
+    FOREIGN KEY (customer_id) REFERENCES landing.clientes(customer_id),
+    FOREIGN KEY (product_id) REFERENCES landing.produtos(product_id)
 );
 
 -- Insere os dados na tabela
-INSERT INTO staging.vendas (purchase_id, customer_id, product_id, date, quantity, total_price, payment_method) VALUES
+INSERT INTO landing.vendas (purchase_id, customer_id, product_id, date, quantity, total_price, payment_method) VALUES
 (1, 200, 2, '2022-03-11', 5, 411.81, 'cartao'),
 (2, 388, 4, '2021-11-22', 1, 967.35, 'cartao'),
 (3, 376, 4, '2020-12-24', 3, 753.28, 'pix'),

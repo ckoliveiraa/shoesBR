@@ -1,8 +1,8 @@
--- Cria o schema staging se não existir
-CREATE SCHEMA IF NOT EXISTS staging;
+-- Cria o schema landing se não existir
+CREATE SCHEMA IF NOT EXISTS landing;
 
--- Cria a tabela clientes dentro do schema staging
-CREATE TABLE staging.clientes (
+-- Cria a tabela clientes dentro do schema landing
+CREATE TABLE landing.clientes (
     customer_id INT PRIMARY KEY,
     name VARCHAR(255),
     address TEXT,
@@ -11,7 +11,7 @@ CREATE TABLE staging.clientes (
 );
 
 -- Insere os dados na tabela
-INSERT INTO staging.clientes (customer_id, name, address, phone, email) VALUES
+INSERT INTO landing.clientes (customer_id, name, address, phone, email) VALUES
 (1, 'Barbara Pinto', 'Campo de Monteiro
 Vila Suzana Segunda Secao
 08252-397 Barros Grande ', '+55 (071) 0771 6705', 'vargasalicia@example.net'),
