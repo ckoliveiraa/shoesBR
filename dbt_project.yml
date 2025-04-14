@@ -33,6 +33,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   shoesbr:
     # Config indicated by + and applies to all files under models/example/
+    staging:
+      +materialized: view
+      +schema: staging
+      +tags: bronze
+      +persist_docs:
+        relation: true
+        columns: true
+        
     intermediate:
       +materialized: view
       +schema: intermediate
@@ -53,4 +61,4 @@ models:
       relation: true
       columns: true
 seeds:
-      +schema: staging
+      +schema: landing
